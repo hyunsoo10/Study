@@ -5,6 +5,8 @@ import com.example.orderapp.domain.item.ItemRepository;
 import com.example.orderapp.domain.order.Order;
 import com.example.orderapp.domain.order.OrderItem;
 import com.example.orderapp.domain.order.OrderRepository;
+import com.example.orderapp.domain.order.Status;
+import com.example.orderapp.presentation.dto.ChangeStatusRequestDto;
 import com.example.orderapp.presentation.dto.OrderItemRequestDto;
 import com.example.orderapp.presentation.dto.OrderResponseDto;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,9 +29,9 @@ public class OrderService {
     //order 생성 메서드
     public OrderResponseDto createOrder(List<OrderItemRequestDto> orderItemRequestDtoList) {
 
-        //1. orderRequestDto 로 order 를 생성
+        //1. orderRequestDto 로 order 를 생성 -> EntityNotFoundException 검증
         List<OrderItem> orderItemsList= makeOrderItem(orderItemRequestDtoList);
-        //2. 생성된 order 의 경우 재고 수량 감소
+        //2. 생성된 order 의 경우 재고 수량 감소 -> NotEnoughStockException 검증
         decreaseItemsAmount(orderItemsList);
 
         //3. Order 생성
@@ -76,4 +78,28 @@ public class OrderService {
                 });
     }
 
+    public OrderResponseDto changeStatus(Long orderId, ChangeStatusRequestDto status) {
+        Order order = orderRepository.findById(orderId);
+        order.changeForceStatus(status);
+        return OrderResponseDto.toDto(order);
+    }
+
+    public OrderResponseDto findById(Long orderId) {
+        Order order = orderRepository.findById(orderId);
+        return OrderResponseDto.toDto(order);
+    }
+
+    public List<OrderResponseDto> findByStatus(Status status) {
+        List<Order> orderList = orderRepository.findByStatus(status);
+        return orderList.stream()
+                .map(order -> OrderResponseDto.toDto(order))
+                .toList();
+    }
+
+    public OrderResponseDto cancelOrder(Long orderId) {
+        Order order = orderRepository.findById(orderId);
+        order.cancel();
+        OrderResponseDto orderResponseDto = OrderResponseDto.toDto(order);
+        return orderResponseDto;
+    }
 }

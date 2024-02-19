@@ -1,5 +1,7 @@
 package com.example.orderapp.domain.order;
 
+import com.example.orderapp.presentation.dto.ChangeStatusRequestDto;
+
 import java.util.List;
 
 public class Order {
@@ -46,6 +48,15 @@ public class Order {
         return this.status.equals(status);
     }
 
+
+    public void changeForceStatus(ChangeStatusRequestDto status) {
+        this.status = status.getStatus();
+    }
+
+    public void cancel() {
+        this.status.checkCancellable();
+        this.status = Status.CANCELED;
+    }
     public void setId(Long id) {
         this.id = id;
     }

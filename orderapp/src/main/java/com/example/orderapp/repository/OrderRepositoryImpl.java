@@ -1,7 +1,9 @@
 package com.example.orderapp.repository;
 
+import com.example.orderapp.domain.exception.EntityNotFoundException;
 import com.example.orderapp.domain.order.Order;
 import com.example.orderapp.domain.order.OrderRepository;
+import com.example.orderapp.domain.order.Status;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -20,5 +22,22 @@ public class OrderRepositoryImpl implements OrderRepository {
 
         orderList.add(order);
         return order;
+    }
+
+    @Override
+    public Order findById(Long orderId) {
+        return orderList
+            .stream()
+            .filter(order -> order.sameId(orderId))
+            .findFirst()
+            .orElseThrow(()-> new EntityNotFoundException("Order를 찾지 못했습니다."));
+    }
+
+    @Override
+    public List<Order> findByStatus(Status status) {
+        return orderList
+                .stream()
+                .filter(order -> order.sameStatus(status))
+                .toList();
     }
 }

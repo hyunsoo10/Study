@@ -129,4 +129,217 @@ public class OrderApiTest {
                 ));
     }
 
+    @Test
+    @DisplayName("2-1 주문 상태 강제 변경 - 성공")
+    void test2_1() throws Exception {
+//        test1_1();
+        byte[] body = """
+            {
+                "status": "SHIPPING"
+            }
+            """.getBytes();
+
+        mockMvc.perform(
+            MockMvcRequestBuilders.patch("/orders/1")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(body)
+            )
+            .andExpect(status().isOk())
+            .andExpect(content().json(
+                """
+                    {
+                        "id": 1,
+                        "orderItemDtoList": [
+                            {
+                                "id": 1,
+                                "name": "아이템1",
+                                "price": 10000,
+                                "amount": 1
+                            },
+                            {
+                                "id": 3,
+                                "name": "아이템3",
+                                "price": 30000,
+                                "amount": 1
+                            }
+                        ],
+                        "totalPrice": 40000,
+                        "status": "SHIPPING"
+                    }
+                    """
+            ));
+        test2_1_init();
+    }
+    void test2_1_init() throws Exception {
+        byte[] body = """
+				{
+				    "status": "CREATED"
+				}
+				""".getBytes();
+
+        mockMvc.perform(
+                MockMvcRequestBuilders.patch("/orders/1")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(body)
+        );
+    }
+    @Test
+    @DisplayName("2-2 주문 상태 변경 (실패)")
+    void test2_2() throws Exception {
+
+        byte[] body = """
+            {
+                "status": "SHIPPING"
+            }
+            """.getBytes();
+        mockMvc.perform(
+                MockMvcRequestBuilders.patch("/orders/999")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(body)
+
+                )
+                .andExpect(status().isNotFound())
+                .andExpect(content().json(
+        """
+                    {
+                        "message": "Order를 찾지 못했습니다."
+                    }
+                    """
+                ));
+    }
+
+    @Test
+    @DisplayName("3-1 주문 번호호  조회 - 성공")
+    void test3_1() throws Exception {
+        mockMvc.perform(
+                MockMvcRequestBuilders.get("/orders/1")
+                )
+                .andExpect(status().isOk())
+                .andExpect(content().json(
+    """
+                {
+                    "id": 1,
+                    "orderItemDtoList": [
+                        {
+                            "id": 1,
+                            "name": "아이템1",
+                            "price": 10000,
+                            "amount": 1
+                        },
+                        {
+                            "id": 3,
+                            "name": "아이템3",
+                            "price": 30000,
+                            "amount": 1
+                        }
+                    ],
+                    "totalPrice": 40000,
+                    "totalAmount": 2,
+                    "status": "CREATED"
+                }
+                """
+                ));
+    }
+
+    @Test
+    @DisplayName("3-2주문 상태로 조회 - 요청 바디 존재")
+    void test3_2() throws Exception {
+        mockMvc.perform(
+                MockMvcRequestBuilders.get("/orders?status=CREATED")
+                )
+                .andExpect(status().isOk())
+                .andExpect(content().json(
+    """
+                
+            [
+                    {
+                        "id": 1,
+                        "orderItemDtoList": [
+                            {
+                                "id": 1,
+                                "name": "아이템1",
+                                "price": 10000,
+                                "amount": 1
+                            },
+                            {
+                                "id": 3,
+                                "name": "아이템3",
+                                "price": 30000,
+                                "amount": 1
+                            }
+                        ],
+                        "totalPrice": 40000,
+                        "totalAmount": 2,
+                        "status": "CREATED"
+                    }
+                ]
+                """
+                ));
+    }
+
+    @Test
+    @DisplayName("3-3주문 상태로 조회 - 요청 바디 없음")
+    void test3_3() throws Exception {
+        mockMvc.perform(
+                        MockMvcRequestBuilders.get("/orders?status=COMPLETED")
+                )
+                .andExpect(status().isOk())
+                .andExpect(content().json(
+     """
+                    
+                [
+
+                 ]
+                 """
+                ));
+    }
+
+    @Test
+    @DisplayName("4-1 주문 취소 성공")
+    void test4_1() throws Exception {
+        mockMvc.perform(
+                MockMvcRequestBuilders.patch("/orders/1/cancel")
+                )
+                .andExpect(status().isOk())
+                .andExpect(content().json(
+     """
+                {
+                    "id": 1,
+                    "orderItemDtoList": [
+                        {
+                            "id": 1,
+                            "name": "아이템1",
+                            "price": 10000,
+                            "amount": 1
+                        },
+                        {
+                            "id": 3,
+                            "name": "아이템3",
+                            "price": 30000,
+                            "amount": 1
+                        }
+                    ],
+                    "totalPrice": 40000,
+                    "totalAmount": 2,
+                    "status": "CANCELED"
+                }
+                """
+                ));
+    }
+
+    @Test
+    @DisplayName("4-2 주문 취소 실패")
+    void test4_2() throws Exception {
+        mockMvc.perform(
+                MockMvcRequestBuilders.patch("/orders/1/cancel")
+                )
+                .andExpect(status().isInternalServerError())
+                .andExpect(content().json(
+    """
+                {
+                "message": "이미 취소되었거나 취소할 수 없는 주문상태입니다."
+                }
+                """
+                ));
+    }
 }

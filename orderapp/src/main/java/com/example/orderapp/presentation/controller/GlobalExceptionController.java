@@ -1,5 +1,6 @@
 package com.example.orderapp.presentation.controller;
 
+import com.example.orderapp.domain.exception.CanNotCancellableStatusException;
 import com.example.orderapp.domain.exception.EntityNotFoundException;
 import com.example.orderapp.domain.exception.NotEnoughStockException;
 import com.example.orderapp.presentation.dto.ErrorMessageDto;
@@ -26,5 +27,11 @@ public class GlobalExceptionController {
     ) {
         ErrorMessageDto errorMessageDto = new ErrorMessageDto(ex.getMessage());
         return new ResponseEntity<>(errorMessageDto, HttpStatus.NOT_FOUND);
+    }
+
+    @ExceptionHandler(CanNotCancellableStatusException.class)
+    public ResponseEntity<ErrorMessageDto> handleCanNotCancelException(CanNotCancellableStatusException ex) {
+        ErrorMessageDto errorMessageDto = new ErrorMessageDto(ex.getMessage());
+        return new ResponseEntity<>(errorMessageDto, HttpStatus.INTERNAL_SERVER_ERROR);
     }
 }
