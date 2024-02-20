@@ -164,6 +164,7 @@ public class OrderApiTest {
                             }
                         ],
                         "totalPrice": 40000,
+                        "totalAmount": 2,
                         "status": "SHIPPING"
                     }
                     """

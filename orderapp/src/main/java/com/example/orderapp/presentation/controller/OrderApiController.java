@@ -35,7 +35,7 @@ public class OrderApiController {
     @Description("주문 상태 변경 API")
     @PatchMapping("/{orderId}")
     public ResponseEntity<OrderResponseDto> changeOrderStatus(
-            @PathVariable Long orderId,
+            @PathVariable("orderId") Long orderId,
             @RequestBody ChangeStatusRequestDto changeStatusRequestDto
     ) {
         OrderResponseDto orderResponseDto = orderService.changeStatus(orderId, changeStatusRequestDto);
