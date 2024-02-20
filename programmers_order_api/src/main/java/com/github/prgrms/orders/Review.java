@@ -18,6 +18,10 @@ public class Review {
     private String content;
     private LocalDateTime createAt;
 
+    public Review(Long userSeq, Long productSeq, String content) {
+        this(null, userSeq, productSeq, content, null);
+    }
+
     public Review(Long seq, Long userSeq, Long productSeq, String content, LocalDateTime createAt){
         this.seq = seq;
         this.userSeq = userSeq;
@@ -25,4 +29,5 @@ public class Review {
         this.content = content;
         this.createAt = defaultIfNull(createAt, now());
     }
+
 }

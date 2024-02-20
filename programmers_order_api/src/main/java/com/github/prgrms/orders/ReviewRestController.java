@@ -20,12 +20,12 @@ public class ReviewRestController {
 
     // TODO review 메소드 구현이 필요합니다.
     @PostMapping("/{id}/review")
-    public ReviewResponseDto review(
+    public ApiResult<ReviewResponseDto> review(
             @AuthenticationPrincipal JwtAuthentication authentication,
-            @PathVariable("id") Long id,
+            @PathVariable Long id,
             @RequestBody ReviewRequestDto reviewRequestDto
     ) {
-        reviewService.review(id, reviewRequestDto);
+        return success(reviewService.review(id, reviewRequestDto));
     }
 
 }

@@ -22,44 +22,70 @@ public class JdbcReviewRepository implements ReviewRepository{
 
     private final JdbcTemplate jdbcTemplate;
 
-    @Override
-    public Review save(Review review) {
-        SimpleJdbcInsert jdbcInsert = new SimpleJdbcInsert(jdbcTemplate);
-        jdbcInsert.withTableName("reviews").usingGeneratedKeyColumns("seq");
+//    @Override
+//    public Review save(Review review) {
+//        SimpleJdbcInsert jdbcInsert = new SimpleJdbcInsert(jdbcTemplate);
+//        jdbcInsert.withTableName("reviews").usingGeneratedKeyColumns("seq");
+//
+//        Long userSeq = review.getSeq();
+//        Long productSeq = review.getProductSeq();
+//        String content = review.getContent();
+//        LocalDateTime createAt = review.getCreateAt();
+//
+//        Map<String, Object> parameters = new HashMap<>();
+//        parameters.put("user_seq", userSeq);
+//        parameters.put("product_seq", productSeq);
+//        parameters.put("content", content);
+//        parameters.put("create_at", createAt);
+//
+//        Number key = jdbcInsert.executeAndReturnKey(new MapSqlParameterSource(parameters));
+//        Long reviewSeq = key.longValue();
+//
+//        return new Review(reviewSeq, userSeq, productSeq, content, createAt);
+//    }
+//
+//    @Override
+//    public Optional<Review> findById(Long id) {
+//        List<Review> review = jdbcTemplate.query(
+//                "SELECT * FROM reviews WHERE seq=?",
+//                mapper,
+//                id
+//        );
+//        return ofNullable(review.isEmpty() ? null : review.get(0));
+//    }
+//
+//    static RowMapper<Review> mapper = (rs, rowNum) ->
+//            new Review.ReviewBuilder()
+//                    .seq(rs.getLong("seq"))
+//                    .productSeq(rs.getLong("product_seq"))
+//                    .content(rs.getString("content"))
+//                    .createAt(dateTimeOf(rs.getTimestamp("create_at")))
+//                    .build();
+@Override
+public Review save(Review review) {
+    // TODO Auto-generated method stub
+    SimpleJdbcInsert jdbcInsert = new SimpleJdbcInsert(jdbcTemplate);
+    jdbcInsert.withTableName("reviews").usingGeneratedKeyColumns("seq");
 
-        Long userSeq = review.getSeq();
-        Long productSeq = review.getProductSeq();
-        String content = review.getContent();
-        LocalDateTime createAt = review.getCreateAt();
+    long userSeq = review.getUserSeq();
+    long productSeq = review.getProductSeq();
+    String content = review.getContent();
+    LocalDateTime createAt = review.getCreateAt();
 
-        Map<String, Object> parameters = new HashMap<>();
-        parameters.put("user_seq", userSeq);
-        parameters.put("product_seq", productSeq);
-        parameters.put("content", content);
-        parameters.put("create_at", createAt);
+    Map<String, Object> parameters = new HashMap<>();
+    parameters.put("user_seq", userSeq);
+    parameters.put("product_seq", productSeq);
+    parameters.put("content", content);
+    parameters.put("create_at", createAt);
 
-        Number key = jdbcInsert.executeAndReturnKey(new MapSqlParameterSource(parameters));
-        Long reviewSeq = key.longValue();
+    Number key = jdbcInsert.executeAndReturnKey(new MapSqlParameterSource(parameters));
+    long reviewSeq = key.longValue();
 
-        return new Review(reviewSeq, userSeq, productSeq, content, createAt);
-    }
+    return new Review(reviewSeq, userSeq, productSeq, content, createAt);
+}
 
     @Override
     public Optional<Review> findById(Long id) {
-        List<Review> review = jdbcTemplate.query(
-                "SELECT * FROM review WHERE seq=?",
-                mapper,
-                id
-        );
-        return ofNullable(review.isEmpty() ? null : review.get(0));
+        return Optional.empty();
     }
-
-    static RowMapper<Review> mapper = (rs, rowNum) ->
-            new Review.ReviewBuilder()
-                    .seq(rs.getLong("seq"))
-                    .productSeq(rs.getLong("product_id"))
-                    .content(rs.getString("content"))
-                    .createAt(dateTimeOf(rs.getTimestamp("create_at")))
-                    .build();
-
 }
