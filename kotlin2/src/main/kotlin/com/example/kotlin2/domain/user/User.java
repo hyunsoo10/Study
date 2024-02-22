@@ -1,5 +1,6 @@
 package com.example.kotlin2.domain.user;
 
+import com.example.kotlin2.domain.exception.PasswordException;
 import lombok.Getter;
 
 @Getter
@@ -72,5 +73,25 @@ public class User {
 
     public static User createUser(Long seq, String userId, String name, String password, String email, Role role, int age) {
         return new User(seq, userId, name, password, email, role, age);
+    }
+
+
+    public boolean isSamePassword(String password) {
+        boolean flag = this.password.equals(password);
+        if(!flag) throw new PasswordException("비밀번호가 일치하지 않습니다.");
+        return true;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "seq=" + seq +
+                ", userId='" + userId + '\'' +
+                ", name='" + name + '\'' +
+                ", password='" + password + '\'' +
+                ", email='" + email + '\'' +
+                ", role=" + role +
+                ", age=" + age +
+                '}';
     }
 }

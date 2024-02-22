@@ -5,20 +5,19 @@ import org.springframework.stereotype.Component;
 
 public class UserDto {
 
-    private String username;
-    private int userAge;
+    private String userId;
+    private String password;
 
-    public UserDto(User user) {
-        this.username = user.getName();
-        this.userAge = user.getAge();
+    public UserDto(String userId, String password) {
+        this.userId = userId;
+        this.password = password;
     }
 
-
-    public String getUsername() {
-        return username;
+    public String getUserId() {
+        return userId;
     }
 
-    public int getUserAge() {
-        return userAge;
+    public String getPassword() {
+        return password;
     }
 }

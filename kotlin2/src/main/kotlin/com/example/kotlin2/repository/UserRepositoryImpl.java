@@ -39,11 +39,34 @@ public class UserRepositoryImpl implements UserRepository {
         User newUser = new User(seq.getAndAdd(1L), user);
         userList.add(newUser);
     }
+
     @Override
-    public User findById(Long seq) {
-        return userList.stream()
+    public List<User> findAll() {
+        return userList;
+    }
+
+    @Override
+    public User findBySeq(Long seq) {
+        return userList
+                .stream()
                 .filter(user -> user.getSeq().equals(seq))
                 .findFirst()
                 .orElseThrow(()->new UserNotFoundException("해당 유저를 찾을 수 없습니다."));
+    }
+
+    @Override
+    public User findByUserId(String userId) {
+        return userList
+                .stream()
+                .filter(user -> user.getUserId().equals(userId))
+                .findFirst()
+                .orElseThrow(() -> new UserNotFoundException("해당 유저를 찾을 수 없습니다."));
+    }
+
+    @Override
+    public boolean isExistedById(String userId) {
+        return userList
+                .stream()
+                .anyMatch(user -> user.getUserId().equals(userId));
     }
 }

@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 
-@Getter
+//@Getter
 public class JwtTokenDto {
 
     private String accessToken;
