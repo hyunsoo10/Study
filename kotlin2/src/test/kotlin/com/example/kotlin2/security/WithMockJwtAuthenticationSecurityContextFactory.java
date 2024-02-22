@@ -1,5 +1,6 @@
 package com.example.kotlin2.security;
 
+import com.example.kotlin2.security.jwt.JwtAuthentication;
 import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.test.context.support.WithSecurityContextFactory;

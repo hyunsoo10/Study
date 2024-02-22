@@ -5,48 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f221bf78-0c32-4534-a5b9-6adbf44a0e2a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../kotlin/src/main/kotlin/com/example/kotlin/controller/TestController.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../kotlin/src/main/kotlin/com/example/kotlin/domain/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../kotlin/src/main/kotlin/com/example/kotlin/domain/UserDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../kotlin/src/main/kotlin/com/example/kotlin/repository/UserRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../kotlin/src/main/kotlin/com/example/kotlin/repository/UserRepositoryImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../kotlin/src/main/kotlin/com/example/kotlin/service/UserService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../kotlin/src/test/kotlin/com/example/kotlin/UserTest.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../kotlin2/kotlin2/src/main/kotlin/com/example/kotlin2/controller/TestController.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../kotlin2/kotlin2/src/main/kotlin/com/example/kotlin2/domain/exception/CanNotCancellableStatusException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../kotlin2/kotlin2/src/main/kotlin/com/example/kotlin2/domain/exception/EntityNotFoundException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../kotlin2/kotlin2/src/main/kotlin/com/example/kotlin2/domain/exception/NotEnoughStockException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../kotlin2/kotlin2/src/main/kotlin/com/example/kotlin2/domain/exception/UserNotFoundException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../kotlin2/kotlin2/src/main/kotlin/com/example/kotlin2/domain/item/Item.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../kotlin2/kotlin2/src/main/kotlin/com/example/kotlin2/domain/item/ItemRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../kotlin2/kotlin2/src/main/kotlin/com/example/kotlin2/domain/order/Order.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../kotlin2/kotlin2/src/main/kotlin/com/example/kotlin2/domain/order/OrderItem.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../kotlin2/kotlin2/src/main/kotlin/com/example/kotlin2/domain/order/OrderRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../kotlin2/kotlin2/src/main/kotlin/com/example/kotlin2/domain/order/Status.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../kotlin2/kotlin2/src/main/kotlin/com/example/kotlin2/domain/user/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../kotlin2/kotlin2/src/main/kotlin/com/example/kotlin2/domain/user/UserRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../kotlin2/kotlin2/src/main/kotlin/com/example/kotlin2/presentation/controller/GlobalExceptionController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../kotlin2/kotlin2/src/main/kotlin/com/example/kotlin2/presentation/controller/KotlinOrderApiController.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../kotlin2/kotlin2/src/main/kotlin/com/example/kotlin2/presentation/controller/KotlinUserApiController.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../kotlin2/kotlin2/src/main/kotlin/com/example/kotlin2/presentation/controller/OrderApiController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../kotlin2/kotlin2/src/main/kotlin/com/example/kotlin2/presentation/dto/ChangeStatusRequestDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../kotlin2/kotlin2/src/main/kotlin/com/example/kotlin2/presentation/dto/ErrorMessageDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../kotlin2/kotlin2/src/main/kotlin/com/example/kotlin2/presentation/dto/OrderItemDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../kotlin2/kotlin2/src/main/kotlin/com/example/kotlin2/presentation/dto/OrderItemRequestDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../kotlin2/kotlin2/src/main/kotlin/com/example/kotlin2/presentation/dto/OrderResponseDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../kotlin2/kotlin2/src/main/kotlin/com/example/kotlin2/presentation/dto/user/UserDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../kotlin2/kotlin2/src/main/kotlin/com/example/kotlin2/presentation/dto/user/UserSignDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../kotlin2/kotlin2/src/main/kotlin/com/example/kotlin2/repository/ItemRepositoryImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../kotlin2/kotlin2/src/main/kotlin/com/example/kotlin2/repository/OrderRepositoryImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../kotlin2/kotlin2/src/main/kotlin/com/example/kotlin2/repository/UserRepositoryImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../kotlin2/kotlin2/src/main/kotlin/com/example/kotlin2/service/OrderService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../kotlin2/kotlin2/src/main/kotlin/com/example/kotlin2/service/UserService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../kotlin2/kotlin2/src/test/kotlin/com/example/kotlin2/OrderTest.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../kotlin2/kotlin2/src/test/kotlin/com/example/kotlin2/UserTest.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../kotlin2/kotlin2/src/test/kotlin/com/example/kotlin2/security/WithMockJwtAuthentication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../kotlin2/kotlin2/src/test/kotlin/com/example/kotlin2/security/WithMockJwtAuthenticationSecurityContextFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../orderapp/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/../orderapp/build.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../orderapp/settings.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/../orderapp/settings.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../kotlin2/src/test/kotlin/com/example/kotlin2/UserTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../kotlin2/src/test/kotlin/com/example/kotlin2/UserTest.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../kotlin2/src/test/kotlin/com/example/kotlin2/security/WithMockJwtAuthenticationSecurityContextFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/../kotlin2/src/test/kotlin/com/example/kotlin2/security/WithMockJwtAuthenticationSecurityContextFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,7 +62,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/GITLAB/S10P12A406/backend",
+    "last_opened_file_path": "C:/GIT/Study/programmers_order_api/pom.xml",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -206,13 +167,6 @@
       </list>
     </recent_temporary>
   </component>
-  <component name="SharedIndexes">
-    <attachedChunks>
-      <set>
-        <option value="jdk-17.0.9-corretto-17.0.9-4caba194b151-107bc6b7" />
-      </set>
-    </attachedChunks>
-  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -223,6 +177,8 @@
       <updated>1708423850130</updated>
       <workItem from="1708423851401" duration="12390000" />
       <workItem from="1708527588907" duration="2654000" />
+      <workItem from="1708572156001" duration="409000" />
+      <workItem from="1708572591101" duration="1527000" />
     </task>
     <servers />
   </component>
