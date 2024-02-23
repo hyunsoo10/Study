@@ -120,7 +120,7 @@ class UserTest(@Autowired val mockMvc: MockMvc) {
     @WithMockUser(username = "user", roles = ["ADMIN"] )
     @DisplayName("2-3회원가입 - 아이디 중복")
     fun test2_3() {
-        test2_1()
+//        test2_1()
         mockMvc.perform(
                 MockMvcRequestBuilders.post("/users/duplicate?userId=toss")
                  )

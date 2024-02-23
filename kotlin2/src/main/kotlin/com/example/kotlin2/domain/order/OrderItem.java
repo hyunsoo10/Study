@@ -1,10 +1,13 @@
 package com.example.kotlin2.domain.order;
 
+import com.example.kotlin2.domain.item.Item;
+
 public class OrderItem {
     private Long id;
     private String name;
     private Integer price;
     private Integer amount;
+
 
     public OrderItem(Long id, String name, Integer price, Integer amount) {
         this.id = id;
@@ -28,4 +31,5 @@ public class OrderItem {
     public Integer getAmount() {
         return amount;
     }
+
 }

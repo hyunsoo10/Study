@@ -3,6 +3,7 @@ package com.example.kotlin2.repository;
 import com.example.kotlin2.domain.exception.EntityNotFoundException;
 import com.example.kotlin2.domain.item.Item;
 import com.example.kotlin2.domain.item.ItemRepository;
+import com.example.kotlin2.domain.order.OrderItem;
 import jakarta.annotation.PostConstruct;
 import org.springframework.stereotype.Repository;
 
@@ -33,4 +34,10 @@ public class ItemRepositoryImpl implements ItemRepository {
                 .findFirst()
                 .orElseThrow(()->new EntityNotFoundException("Item을 찾지 못했습니다."));
     }
+
+    @Override
+    public List<Item> findAll() {
+        return itemList;
+    }
+
 }

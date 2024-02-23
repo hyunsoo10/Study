@@ -56,6 +56,10 @@ public class Order {
     public void cancel() {
         this.status.checkCancellable();
         this.status = Status.CANCELED;
+//        orderItem 재고 복원
+        for (OrderItem orderItem : orderItemList) {
+            orderItem.cancel();
+        }
     }
     public void setId(Long id) {
         this.id = id;

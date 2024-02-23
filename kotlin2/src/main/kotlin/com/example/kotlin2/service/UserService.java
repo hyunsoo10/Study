@@ -52,8 +52,8 @@ public class UserService {
                 Role.USER,
                 userSignDto.getAge()
         );
-        userRepository.save(newUser);
         validateDuplicateUser(newUser);
+        userRepository.save(newUser);
         UserResponseDto userResponseDto = UserResponseDto.toDto(newUser);
         return new ApiResponse<>(userResponseDto, "회원가입 성공");
     }
@@ -75,11 +75,6 @@ public class UserService {
     }
 
     private void validateDuplicateUser(User user) {
-        System.out.println("user = " + user);
-        List<User> users = userRepository.findAll();
-        for (User u : users) {
-            System.out.println("user = " + u);
-        }
         boolean duplicate = userRepository.isExistedById(user.getUserId());
         if(duplicate) throw new IllegalStateException("이미 존재하는 회원입니다");
     }

@@ -44,4 +44,11 @@ public class Item {
     public void decreaseAmount(Integer amount) {
         this.amount -= amount;
     }
+
+
+    //재고 증가 메서드
+    public void increaseAmount(Integer amount) {
+        this.amount += amount;
+    }
+
 }

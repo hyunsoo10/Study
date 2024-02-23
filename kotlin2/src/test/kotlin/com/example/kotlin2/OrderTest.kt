@@ -9,6 +9,8 @@ import org.springframework.http.MediaType
 import org.springframework.test.web.servlet.MockMvc
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers
+import org.springframework.test.web.servlet.result.MockMvcResultMatchers.content
+import org.springframework.test.web.servlet.result.MockMvcResultMatchers.status
 
 @SpringBootTest
 @AutoConfigureMockMvc
@@ -221,7 +223,7 @@ class OrderTest (@Autowired val mockMvc: MockMvc){
     }
 
     @Test
-    @DisplayName("3-1 주문 번호호  조회 - 성공")
+    @DisplayName("3-1 주문 번호로  조회 - 성공")
     @Throws(Exception::class)
     fun test3_1() {
         mockMvc.perform(
@@ -256,9 +258,22 @@ class OrderTest (@Autowired val mockMvc: MockMvc){
     }
 
     @Test
-    @DisplayName("3-2주문 상태로 조회 - 요청 바디 존재")
-    @Throws(Exception::class)
+    @DisplayName("3-2주문 번호로 조회 - 실패(Order 찾지 못함)")
     fun test3_2() {
+        mockMvc.perform(
+            MockMvcRequestBuilders.get("/orders/99999")
+        )
+            .andExpect(status().isNotFound())
+            .andExpect(content().json("""
+						{
+						    "message": "Order를 찾지 못했습니다."
+						}
+						"""));
+    }
+    @Test
+    @DisplayName("4-1주문 상태로 조회 - 요청 바디 존재")
+    @Throws(Exception::class)
+    fun test4_1() {
         mockMvc.perform(
                 MockMvcRequestBuilders.get("/orders?status=CREATED")
         )
@@ -294,9 +309,9 @@ class OrderTest (@Autowired val mockMvc: MockMvc){
     }
 
     @Test
-    @DisplayName("3-3주문 상태로 조회 - 요청 바디 없음")
+    @DisplayName("4-2주문 상태로 조회 - 요청 바디 없음")
     @Throws(Exception::class)
-    fun test3_3() {
+    fun test4_2() {
         mockMvc.perform(
                 MockMvcRequestBuilders.get("/orders?status=COMPLETED")
         )
@@ -313,9 +328,9 @@ class OrderTest (@Autowired val mockMvc: MockMvc){
     }
 
     @Test
-    @DisplayName("4-1 주문 취소 성공")
+    @DisplayName("5-1 주문 취소 - 성공")
     @Throws(Exception::class)
-    fun test4_1() {
+    fun test5_1() {
         mockMvc.perform(
                 MockMvcRequestBuilders.patch("/orders/1/cancel")
         )
@@ -348,9 +363,9 @@ class OrderTest (@Autowired val mockMvc: MockMvc){
     }
 
     @Test
-    @DisplayName("4-2 주문 취소 실패")
+    @DisplayName("5-2 주문 취소 - 실패")
     @Throws(Exception::class)
-    fun test4_2() {
+    fun test5_2() {
         mockMvc.perform(
                 MockMvcRequestBuilders.patch("/orders/1/cancel")
         )

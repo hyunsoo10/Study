@@ -77,6 +77,17 @@ public class OrderService {
                     item.decreaseAmount(orderAmount);
                 });
     }
+    private void increaseItemsAmount(List<OrderItem> orderItemsList) {
+        orderItemsList
+                .stream()
+                .forEach(orderItem -> {
+                    Long itemId = orderItem.getId();
+                    Item item = itemRepository.findById(itemId);
+
+                    Integer orderAmount = orderItem.getAmount();
+                    item.increaseAmount(orderAmount);
+                });
+    }
 
     public OrderResponseDto changeStatus(Long orderId, ChangeStatusRequestDto status) {
         Order order = orderRepository.findById(orderId);
