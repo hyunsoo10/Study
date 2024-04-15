@@ -1,0 +1,10 @@
+#spring:
+#  application:
+#    name: calendar
+
+spring:
+  config:
+    import:
+      - optional:application-oauth.yml
+
+

@@ -1,0 +1,14 @@
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: 64924414646-ppe65ndh37pm5nt385jcismo2h2budso.apps.googleusercontent.com
+            client-secret: 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
+            scope:
+              - email
+              - profile
+              - https://www.googleapis.com/auth/calendar.readonly
+            redirect-uri: http://localhost:8080/login/oauth2/code/google
+          #            redirect-uri: https://spring.pickitup.online/login/oauth2/code/google

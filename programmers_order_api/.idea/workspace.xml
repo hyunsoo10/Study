@@ -63,6 +63,7 @@
   "keyToString": {
     "JUnit.OrderRestControllerTest.acceptSuccessTest.executor": "Run",
     "JUnit.OrderRestControllerTest.executor": "Run",
+    "JUnit.ProductRestControllerTest.executor": "Run",
     "JUnit.ReviewRestControllerTest.executor": "Run",
     "JUnit.ReviewRestControllerTest.reviewFailureTest1.executor": "Run",
     "JUnit.ReviewRestControllerTest.reviewFailureTest2.executor": "Run",
@@ -73,7 +74,11 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
+<<<<<<< HEAD
     "last_opened_file_path": "C:/Users/hyuns/inflearn/jpashop",
+=======
+    "last_opened_file_path": "C:/GIT/Study/orderapp",
+>>>>>>> 5586bac2b04804eab899499ad4d049fb4ac4ab19
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -82,7 +87,7 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager" selected="JUnit.ReviewRestControllerTest">
+  <component name="RunManager" selected="JUnit.OrderRestControllerTest">
     <configuration name="OrderRestControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="prgmrs" />
       <extension name="coverage">
@@ -114,6 +119,21 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="ProductRestControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="prgmrs" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.github.prgrms.products.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.github.prgrms.products" />
+      <option name="MAIN_CLASS_NAME" value="com.github.prgrms.products.ProductRestControllerTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="ReviewRestControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="prgmrs" />
       <extension name="coverage">
@@ -125,22 +145,6 @@
       <option name="PACKAGE_NAME" value="com.github.prgrms.orders" />
       <option name="MAIN_CLASS_NAME" value="com.github.prgrms.orders.ReviewRestControllerTest" />
       <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ReviewRestControllerTest.reviewFailureTest3" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="prgmrs" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.github.prgrms.orders.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.github.prgrms.orders" />
-      <option name="MAIN_CLASS_NAME" value="com.github.prgrms.orders.ReviewRestControllerTest" />
-      <option name="METHOD_NAME" value="reviewFailureTest3" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -170,20 +174,13 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.ReviewRestControllerTest" />
         <item itemvalue="JUnit.OrderRestControllerTest" />
+        <item itemvalue="JUnit.ProductRestControllerTest" />
+        <item itemvalue="JUnit.ReviewRestControllerTest" />
         <item itemvalue="JUnit.OrderRestControllerTest.acceptSuccessTest" />
         <item itemvalue="JUnit.ReviewRestControllerTest.reviewSuccessTest" />
-        <item itemvalue="JUnit.ReviewRestControllerTest.reviewFailureTest3" />
       </list>
     </recent_temporary>
-  </component>
-  <component name="SharedIndexes">
-    <attachedChunks>
-      <set>
-        <option value="jdk-17.0.9-corretto-17.0.9-4caba194b151-107bc6b7" />
-      </set>
-    </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -197,9 +194,16 @@
       <workItem from="1708527588907" duration="2654000" />
       <workItem from="1708572156001" duration="409000" />
       <workItem from="1708572591101" duration="1527000" />
+<<<<<<< HEAD
       <workItem from="1708598800099" duration="2443000" />
       <workItem from="1708687651598" duration="2484000" />
       <workItem from="1708739006587" duration="1944000" />
+=======
+      <workItem from="1708598800099" duration="2442000" />
+      <workItem from="1709528264512" duration="16000" />
+      <workItem from="1710112014075" duration="4451000" />
+      <workItem from="1711949178296" duration="2772000" />
+>>>>>>> 5586bac2b04804eab899499ad4d049fb4ac4ab19
     </task>
     <servers />
   </component>
