@@ -8,7 +8,7 @@ import java.util.List;
 public class OrderResponseDto {
 
     private Long id;
-    private List<OrderItemDto> orderItemDtoList;
+    private List<OrderItemDto> orderItems;
     private Integer totalPrice;
     private Integer totalAmount;
     private Status status;
@@ -17,8 +17,8 @@ public class OrderResponseDto {
         return id;
     }
 
-    public List<OrderItemDto> getOrderItemDtoList() {
-        return orderItemDtoList;
+    public List<OrderItemDto> getOrderItems() {
+        return orderItems;
     }
 
     public Integer getTotalPrice() {
@@ -33,9 +33,9 @@ public class OrderResponseDto {
         return status;
     }
 
-    public OrderResponseDto(Long id, List<OrderItemDto> orderItemDtoList, Integer totalPrice, Integer totalAmount, Status status) {
+    public OrderResponseDto(Long id, List<OrderItemDto> orderItems, Integer totalPrice, Integer totalAmount, Status status) {
         this.id = id;
-        this.orderItemDtoList = orderItemDtoList;
+        this.orderItems = orderItems;
         this.totalPrice = totalPrice;
         this.totalAmount = totalAmount;
         this.status = status;
@@ -56,5 +56,4 @@ public class OrderResponseDto {
                 order.getStatus()
         );
     }
-
 }

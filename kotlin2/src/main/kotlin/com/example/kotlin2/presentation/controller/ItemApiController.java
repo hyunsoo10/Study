@@ -1,6 +1,7 @@
 package com.example.kotlin2.presentation.controller;
 
 
+import com.example.kotlin2.presentation.dto.ApiResponse;
 import com.example.kotlin2.presentation.dto.item.ItemDto;
 import com.example.kotlin2.service.ItemService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,8 +26,8 @@ public class ItemApiController {
     }
 
     @GetMapping
-    public ResponseEntity<?> findAllItem() {
+    public ApiResponse<?> findAllItem() {
         List<ItemDto> allItem = itemService.findAll();
-        return ResponseEntity.ok(allItem);
+        return new ApiResponse<>(allItem, "success");
     }
 }

@@ -3,6 +3,7 @@ package com.example.kotlin2.presentation.controller
 import com.example.kotlin2.domain.item.ItemRepository
 import com.example.kotlin2.domain.order.OrderRepository
 import com.example.kotlin2.domain.order.Status
+import com.example.kotlin2.presentation.dto.ApiResponse
 import com.example.kotlin2.presentation.dto.ChangeStatusRequestDto
 import com.example.kotlin2.presentation.dto.OrderItemRequestDto
 import com.example.kotlin2.presentation.dto.OrderResponseDto
@@ -36,9 +37,9 @@ class KotlinOrderApiController (private val orderService: OrderService) {
 
     @Description("주문 번호로 조회 API")
     @GetMapping("/{orderId}")
-    fun getOrder(@PathVariable orderId: Long?): ResponseEntity<OrderResponseDto> {
+    fun getOrder(@PathVariable orderId: Long?): ApiResponse<OrderResponseDto> {
         val orderResponseDto: OrderResponseDto = orderService.findById(orderId)
-        return ResponseEntity.ok(orderResponseDto)
+        return ApiResponse(orderResponseDto, "success")
     }
 
     @Description("주문 상태로 조회 API")

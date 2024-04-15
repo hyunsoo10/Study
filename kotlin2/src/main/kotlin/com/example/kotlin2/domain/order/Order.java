@@ -8,10 +8,12 @@ public class Order {
 
     private Long id;
     private List<OrderItem> orderItemList;
-
     private Integer totalPrice; //총 주문 가격
     private Integer totalAmount; // 총 주문 수량
     private Status status;
+
+    public Order() {
+    }
 
     public Order(List<OrderItem> orderItemList) {
         this.orderItemList = orderItemList;
@@ -56,10 +58,6 @@ public class Order {
     public void cancel() {
         this.status.checkCancellable();
         this.status = Status.CANCELED;
-//        orderItem 재고 복원
-        for (OrderItem orderItem : orderItemList) {
-            orderItem.cancel();
-        }
     }
     public void setId(Long id) {
         this.id = id;
@@ -80,4 +78,5 @@ public class Order {
                 .mapToInt(orderItem -> orderItem.getAmount())
                 .sum();
     }
+
 }

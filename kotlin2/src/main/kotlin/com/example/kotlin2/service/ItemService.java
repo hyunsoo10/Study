@@ -26,4 +26,8 @@ public class ItemService {
 
         return itemDtoList;
     }
+
+    public Item findById(Long id) {
+        return itemRepository.findById(id);
+    }
 }

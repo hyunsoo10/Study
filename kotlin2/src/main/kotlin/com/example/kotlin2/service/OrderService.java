@@ -2,13 +2,11 @@ package com.example.kotlin2.service;
 
 import com.example.kotlin2.domain.item.Item;
 import com.example.kotlin2.domain.item.ItemRepository;
-import com.example.kotlin2.domain.order.Order;
-import com.example.kotlin2.domain.order.OrderItem;
-import com.example.kotlin2.domain.order.OrderRepository;
-import com.example.kotlin2.domain.order.Status;
+import com.example.kotlin2.domain.order.*;
 import com.example.kotlin2.presentation.dto.ChangeStatusRequestDto;
 import com.example.kotlin2.presentation.dto.OrderItemRequestDto;
 import com.example.kotlin2.presentation.dto.OrderResponseDto;
+import kotlin.jvm.Transient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -110,7 +108,8 @@ public class OrderService {
     public OrderResponseDto cancelOrder(Long orderId) {
         Order order = orderRepository.findById(orderId);
         order.cancel();
-        OrderResponseDto orderResponseDto = OrderResponseDto.toDto(order);
-        return orderResponseDto;
+        List<OrderItem> orderItemList = order.getOrderItemList();
+        increaseItemsAmount(orderItemList);
+        return OrderResponseDto.toDto(order);
     }
 }

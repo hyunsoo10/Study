@@ -43,7 +43,7 @@ class OrderTest (@Autowired val mockMvc: MockMvc){
                 .andExpect(MockMvcResultMatchers.content().json("""
                          {
                            "id": 1,
-                           "orderItemDtoList": [
+                           "orderItems": [
                                {
                                    "id": 1,
                                    "name": "아이템1",
@@ -155,7 +155,7 @@ class OrderTest (@Autowired val mockMvc: MockMvc){
                         """
                     {
                         "id": 1,
-                        "orderItemDtoList": [
+                        "orderItems": [
                             {
                                 "id": 1,
                                 "name": "아이템1",
@@ -234,7 +234,7 @@ class OrderTest (@Autowired val mockMvc: MockMvc){
                         """
                 {
                     "id": 1,
-                    "orderItemDtoList": [
+                    "orderItems": [
                         {
                             "id": 1,
                             "name": "아이템1",
@@ -284,7 +284,7 @@ class OrderTest (@Autowired val mockMvc: MockMvc){
             [
                     {
                         "id": 1,
-                        "orderItemDtoList": [
+                        "orderItems": [
                             {
                                 "id": 1,
                                 "name": "아이템1",
@@ -339,7 +339,7 @@ class OrderTest (@Autowired val mockMvc: MockMvc){
                         """
                 {
                     "id": 1,
-                    "orderItemDtoList": [
+                    "orderItems": [
                         {
                             "id": 1,
                             "name": "아이템1",

@@ -32,7 +32,7 @@ public class ItemRepositoryImpl implements ItemRepository {
                 .stream()
                 .filter(item -> item.sameId(id))
                 .findFirst()
-                .orElseThrow(()->new EntityNotFoundException("Item을 찾지 못했습니다."));
+                 .orElseThrow(()->new EntityNotFoundException("Item을 찾지 못했습니다."));
     }
 
     @Override
@@ -41,3 +41,4 @@ public class ItemRepositoryImpl implements ItemRepository {
     }
 
 }
+

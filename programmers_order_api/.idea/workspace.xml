@@ -5,23 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f221bf78-0c32-4534-a5b9-6adbf44a0e2a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../kotlin2/src/main/kotlin/com/example/kotlin2/domain/exception/PasswordException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../kotlin2/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../kotlin2/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../kotlin2/src/main/kotlin/com/example/kotlin2/domain/user/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/../kotlin2/src/main/kotlin/com/example/kotlin2/domain/user/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../kotlin2/src/main/kotlin/com/example/kotlin2/domain/user/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../kotlin2/src/main/kotlin/com/example/kotlin2/domain/user/UserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../kotlin2/src/main/kotlin/com/example/kotlin2/presentation/controller/GlobalExceptionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../kotlin2/src/main/kotlin/com/example/kotlin2/presentation/controller/GlobalExceptionController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../kotlin2/src/main/kotlin/com/example/kotlin2/presentation/controller/KotlinUserApiController.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../kotlin2/src/main/kotlin/com/example/kotlin2/presentation/controller/KotlinUserApiController.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../kotlin2/src/main/kotlin/com/example/kotlin2/presentation/controller/OrderApiController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../kotlin2/src/main/kotlin/com/example/kotlin2/presentation/dto/user/UserDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/../kotlin2/src/main/kotlin/com/example/kotlin2/presentation/dto/user/UserDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../kotlin2/src/main/kotlin/com/example/kotlin2/presentation/dto/user/UserSignDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/../kotlin2/src/main/kotlin/com/example/kotlin2/presentation/dto/user/UserSignDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../kotlin2/src/main/kotlin/com/example/kotlin2/repository/UserRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../kotlin2/src/main/kotlin/com/example/kotlin2/repository/UserRepositoryImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../kotlin2/src/main/kotlin/com/example/kotlin2/security/jwt/JwtAuthentication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../kotlin2/src/main/kotlin/com/example/kotlin2/security/jwt/JwtTokenDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/../kotlin2/src/main/kotlin/com/example/kotlin2/security/jwt/JwtTokenDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../kotlin2/src/main/kotlin/com/example/kotlin2/security/jwt/JwtTokenProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/../kotlin2/src/main/kotlin/com/example/kotlin2/security/jwt/JwtTokenProvider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../kotlin2/src/main/kotlin/com/example/kotlin2/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../kotlin2/src/main/kotlin/com/example/kotlin2/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../kotlin2/src/test/kotlin/com/example/kotlin2/UserTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../kotlin2/src/test/kotlin/com/example/kotlin2/UserTest.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../kotlin2/src/test/kotlin/com/example/kotlin2/security/WithMockJwtAuthentication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../kotlin2/src/test/kotlin/com/example/kotlin2/security/WithMockJwtAuthenticationSecurityContextFactory.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../kotlin2/src/main/kotlin/com/example/kotlin2/domain/item/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/../kotlin2/src/main/kotlin/com/example/kotlin2/domain/item/Item.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../kotlin2/src/main/kotlin/com/example/kotlin2/domain/order/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/../kotlin2/src/main/kotlin/com/example/kotlin2/domain/order/Order.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../kotlin2/src/main/kotlin/com/example/kotlin2/domain/order/OrderItem2.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../kotlin2/src/main/kotlin/com/example/kotlin2/presentation/controller/ItemApiController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../kotlin2/src/main/kotlin/com/example/kotlin2/presentation/controller/ItemApiController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../kotlin2/src/main/kotlin/com/example/kotlin2/presentation/controller/KotlinOrderApiController.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../kotlin2/src/main/kotlin/com/example/kotlin2/presentation/controller/KotlinOrderApiController.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../kotlin2/src/main/kotlin/com/example/kotlin2/presentation/dto/OrderItemDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/../kotlin2/src/main/kotlin/com/example/kotlin2/presentation/dto/OrderItemDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../kotlin2/src/main/kotlin/com/example/kotlin2/presentation/dto/OrderItemRequestDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/../kotlin2/src/main/kotlin/com/example/kotlin2/presentation/dto/OrderItemRequestDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../kotlin2/src/main/kotlin/com/example/kotlin2/presentation/dto/OrderResponseDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/../kotlin2/src/main/kotlin/com/example/kotlin2/presentation/dto/OrderResponseDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../kotlin2/src/main/kotlin/com/example/kotlin2/repository/ItemRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../kotlin2/src/main/kotlin/com/example/kotlin2/repository/ItemRepositoryImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../kotlin2/src/main/kotlin/com/example/kotlin2/service/ItemService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../kotlin2/src/main/kotlin/com/example/kotlin2/service/ItemService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../kotlin2/src/main/kotlin/com/example/kotlin2/service/OrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../kotlin2/src/main/kotlin/com/example/kotlin2/service/OrderService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../kotlin2/src/test/kotlin/com/example/kotlin2/OrderTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../kotlin2/src/test/kotlin/com/example/kotlin2/OrderTest.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../kotlin2/src/test/kotlin/com/example/kotlin2/java/JavaTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../kotlin2/src/test/kotlin/com/example/kotlin2/java/JavaTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -77,7 +73,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/GITLAB/S10P12A406/backend",
+    "last_opened_file_path": "C:/Users/hyuns/inflearn/jpashop",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -201,7 +197,9 @@
       <workItem from="1708527588907" duration="2654000" />
       <workItem from="1708572156001" duration="409000" />
       <workItem from="1708572591101" duration="1527000" />
-      <workItem from="1708598800099" duration="2442000" />
+      <workItem from="1708598800099" duration="2443000" />
+      <workItem from="1708687651598" duration="2484000" />
+      <workItem from="1708739006587" duration="1944000" />
     </task>
     <servers />
   </component>
