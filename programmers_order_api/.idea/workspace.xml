@@ -5,23 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f221bf78-0c32-4534-a5b9-6adbf44a0e2a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../kotlin2/src/main/kotlin/com/example/kotlin2/domain/exception/PasswordException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../kotlin2/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../kotlin2/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../kotlin2/src/main/kotlin/com/example/kotlin2/domain/user/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/../kotlin2/src/main/kotlin/com/example/kotlin2/domain/user/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../kotlin2/src/main/kotlin/com/example/kotlin2/domain/user/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../kotlin2/src/main/kotlin/com/example/kotlin2/domain/user/UserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../kotlin2/src/main/kotlin/com/example/kotlin2/presentation/controller/GlobalExceptionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../kotlin2/src/main/kotlin/com/example/kotlin2/presentation/controller/GlobalExceptionController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../kotlin2/src/main/kotlin/com/example/kotlin2/presentation/controller/KotlinUserApiController.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../kotlin2/src/main/kotlin/com/example/kotlin2/presentation/controller/KotlinUserApiController.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../kotlin2/src/main/kotlin/com/example/kotlin2/presentation/controller/OrderApiController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../kotlin2/src/main/kotlin/com/example/kotlin2/presentation/dto/user/UserDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/../kotlin2/src/main/kotlin/com/example/kotlin2/presentation/dto/user/UserDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../kotlin2/src/main/kotlin/com/example/kotlin2/presentation/dto/user/UserSignDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/../kotlin2/src/main/kotlin/com/example/kotlin2/presentation/dto/user/UserSignDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../kotlin2/src/main/kotlin/com/example/kotlin2/repository/UserRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../kotlin2/src/main/kotlin/com/example/kotlin2/repository/UserRepositoryImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../kotlin2/src/main/kotlin/com/example/kotlin2/security/jwt/JwtAuthentication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../kotlin2/src/main/kotlin/com/example/kotlin2/security/jwt/JwtTokenDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/../kotlin2/src/main/kotlin/com/example/kotlin2/security/jwt/JwtTokenDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../kotlin2/src/main/kotlin/com/example/kotlin2/security/jwt/JwtTokenProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/../kotlin2/src/main/kotlin/com/example/kotlin2/security/jwt/JwtTokenProvider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../kotlin2/src/main/kotlin/com/example/kotlin2/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../kotlin2/src/main/kotlin/com/example/kotlin2/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../kotlin2/src/test/kotlin/com/example/kotlin2/UserTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../kotlin2/src/test/kotlin/com/example/kotlin2/UserTest.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../kotlin2/src/test/kotlin/com/example/kotlin2/security/WithMockJwtAuthentication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../kotlin2/src/test/kotlin/com/example/kotlin2/security/WithMockJwtAuthenticationSecurityContextFactory.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../orderapp/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/../orderapp/.gradle/file-system.probe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -67,6 +51,7 @@
   "keyToString": {
     "JUnit.OrderRestControllerTest.acceptSuccessTest.executor": "Run",
     "JUnit.OrderRestControllerTest.executor": "Run",
+    "JUnit.ProductRestControllerTest.executor": "Run",
     "JUnit.ReviewRestControllerTest.executor": "Run",
     "JUnit.ReviewRestControllerTest.reviewFailureTest1.executor": "Run",
     "JUnit.ReviewRestControllerTest.reviewFailureTest2.executor": "Run",
@@ -77,7 +62,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/GITLAB/S10P12A406/backend",
+    "last_opened_file_path": "C:/GIT/Study/orderapp",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -86,7 +71,7 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager" selected="JUnit.ReviewRestControllerTest">
+  <component name="RunManager" selected="JUnit.OrderRestControllerTest">
     <configuration name="OrderRestControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="prgmrs" />
       <extension name="coverage">
@@ -118,6 +103,21 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="ProductRestControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="prgmrs" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.github.prgrms.products.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.github.prgrms.products" />
+      <option name="MAIN_CLASS_NAME" value="com.github.prgrms.products.ProductRestControllerTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="ReviewRestControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="prgmrs" />
       <extension name="coverage">
@@ -129,22 +129,6 @@
       <option name="PACKAGE_NAME" value="com.github.prgrms.orders" />
       <option name="MAIN_CLASS_NAME" value="com.github.prgrms.orders.ReviewRestControllerTest" />
       <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ReviewRestControllerTest.reviewFailureTest3" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="prgmrs" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.github.prgrms.orders.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.github.prgrms.orders" />
-      <option name="MAIN_CLASS_NAME" value="com.github.prgrms.orders.ReviewRestControllerTest" />
-      <option name="METHOD_NAME" value="reviewFailureTest3" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -174,20 +158,13 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.ReviewRestControllerTest" />
         <item itemvalue="JUnit.OrderRestControllerTest" />
+        <item itemvalue="JUnit.ProductRestControllerTest" />
+        <item itemvalue="JUnit.ReviewRestControllerTest" />
         <item itemvalue="JUnit.OrderRestControllerTest.acceptSuccessTest" />
         <item itemvalue="JUnit.ReviewRestControllerTest.reviewSuccessTest" />
-        <item itemvalue="JUnit.ReviewRestControllerTest.reviewFailureTest3" />
       </list>
     </recent_temporary>
-  </component>
-  <component name="SharedIndexes">
-    <attachedChunks>
-      <set>
-        <option value="jdk-17.0.9-corretto-17.0.9-4caba194b151-107bc6b7" />
-      </set>
-    </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -202,6 +179,9 @@
       <workItem from="1708572156001" duration="409000" />
       <workItem from="1708572591101" duration="1527000" />
       <workItem from="1708598800099" duration="2442000" />
+      <workItem from="1709528264512" duration="16000" />
+      <workItem from="1710112014075" duration="4451000" />
+      <workItem from="1711949178296" duration="2772000" />
     </task>
     <servers />
   </component>
