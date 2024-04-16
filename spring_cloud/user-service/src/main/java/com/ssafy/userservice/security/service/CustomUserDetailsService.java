@@ -1,6 +1,5 @@
 package com.ssafy.userservice.security.service;
 
-import com.ssafy.pickitup.domain.auth.query.AuthQueryJpaRepository;
 import com.ssafy.userservice.repository.AuthRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -19,12 +18,12 @@ public class CustomUserDetailsService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        return authQueryJpaRepository.findAuthByUsername(username)
+        return authRepository.findByUsername(username)
             .map(this::createUserDetails)
             .orElseThrow(() -> new UsernameNotFoundException(
                 "Can't find user with this username. -> " + username));
     }
-    public UserDetails createUserDetails(com.ssafy.pickitup.domain.auth.entity.Auth auth) {
+    public UserDetails createUserDetails(com.ssafy.userservice.entity.Auth auth) {
         return User.builder()
             .username(auth.getUsername())
             .password(auth.getPassword())

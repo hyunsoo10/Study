@@ -24,7 +24,7 @@ import org.hibernate.annotations.SQLRestriction;
 @Getter
 @Builder
 @SQLRestriction("is_deleted = false")
-@ToString(of = {"id", "username", "password", "refreshToken", "user", "lastLoginDate"})
+@ToString(of = {"id", "username", "password", "refreshToken", "member", "lastLoginDate"})
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
 public class Auth {

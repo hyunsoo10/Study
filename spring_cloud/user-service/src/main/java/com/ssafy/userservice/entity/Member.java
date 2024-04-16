@@ -1,28 +1,32 @@
 package com.ssafy.userservice.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-import lombok.Data;
+import jakarta.persistence.*;
+import lombok.*;
 
 @Data
 @Entity
-@Table(name = "users")
+@Builder
+@Table(name = "members")
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@AllArgsConstructor
 public class Member {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue
     private Integer id;
 
+    @Builder.Default
+    @Column(columnDefinition = "INT DEFAULT 1")
+    private Integer profile = 1;
+    private String nickname;
     @Column(nullable = false, length = 50, unique = true)
     private String email;
-    @Column(nullable = false, length = 50)
-    private String name;
-    @Column(nullable = false, unique = true)
-    private String userId;
     @Column(nullable = false, unique = true)
     private String encryptedPwd;
+
+    @MapsId
+    @OneToOne
+    @JoinColumn(name = "id", referencedColumnName = "id")
+    private Auth auth;
+
 }

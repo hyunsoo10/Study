@@ -1,0 +1,47 @@
+version: "3"
+
+services:
+  
+  mysql-user-service:
+    image: mysql:latest
+    # 컨테이너 실행 시 재시작
+    restart: always
+    # 컨테이너명 설정
+    container_name: mysql-user-service
+    # 환경 변수 설정
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_ROOT_HOST: '%'
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      TZ: 'Asia/Seoul'
+    command: --default-authentication-plugin=mysql_native_password
+    # 접근 포트 설정 (컨테이너 외부:컨테이너 내부)
+    ports:
+      - 3309:3306
+    # 볼륨 설정
+    volumes:
+      - mysql:/var/lib/mysql
+    # 네트워크 설정
+    networks:
+      - my-network
+  
+  redis:
+    image: redis:latest
+    container_name: redis-user-service
+    volumes:
+      # - ./redis/redis_vol:/data
+      - redis:/data
+    ports:
+      - 6379:6379
+    networks:
+      - my-network
+      
+volumes:
+  mysql:
+  redis:
+  
+networks:
+  my-network:
+    external: true

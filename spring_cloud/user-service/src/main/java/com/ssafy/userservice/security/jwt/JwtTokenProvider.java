@@ -1,7 +1,7 @@
 package com.ssafy.userservice.security.jwt;
 
-import com.ssafy.pickitup.domain.auth.query.dto.AuthDto;
-import com.ssafy.pickitup.security.CustomUserDetails;
+import com.ssafy.userservice.dto.AuthDto;
+import com.ssafy.userservice.security.CustomUserDetails;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.Jwts;
@@ -38,14 +38,14 @@ public class JwtTokenProvider {
     }
 
     // accessToken, refreshToken을 생성
-    public JwtTokenDto generateToken(Authentication authentication, AuthDto auth) {
+    public JwtTokenDto generateToken(Authentication authentication, AuthDto authDto) {
         String authorities = authentication.getAuthorities().stream()
             .map(GrantedAuthority::getAuthority)
             .collect(Collectors.joining(","));
         long now = (new Date()).getTime();
         Date accessTokenExpirationTime = new Date(now + JwtProperties.ACCESS_TOKEN_EXPIRATION_TIME);
         String accessToken = Jwts.builder()
-            .setSubject(String.valueOf(auth.getId())) // authId 담기
+            .setSubject(String.valueOf(authDto.getId())) // authId 담기
             .claim(AUTHORITIES_KEY, authorities)
             .setExpiration(accessTokenExpirationTime)
             .signWith(key, SignatureAlgorithm.HS256)
@@ -56,7 +56,7 @@ public class JwtTokenProvider {
             .signWith(key, SignatureAlgorithm.HS256)
             .compact();
 
-        return new JwtTokenDto(auth.getId(), accessToken, refreshToken);
+        return new JwtTokenDto(authDto.getId(), accessToken, refreshToken);
     }
 
     public JwtTokenDto generateToken(Authentication authentication) {

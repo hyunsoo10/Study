@@ -5,6 +5,31 @@ spring:
   application:
     name: user-service
 
+  config:
+    import:
+      - optional:env.yml
+      - optional:application-oauth.yml
+  data:
+    redis:
+      host: ${redis.host}
+      port: ${redis.port}
+
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://${mysql.host}:${mysql.port}/${mysql.database}?useSSL=false&serverTimezone=UTC
+    username: ${mysql.username}
+    password: ${mysql.password}
+
+
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: create-drop
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+        format_sql: true
+
 eureka:
   instance:
     instance-id: ${spring.cloud.client.hostname}:${spring.application.instance_id:${random.value}}
@@ -14,17 +39,18 @@ eureka:
     service-url:
       defaultZone: http://127.0.0.1:8761/eureka
 
-  datasource:
-    url: jdbc:h2:./test
-    driver-class-name: org.h2.Driver
-    username: sa
-    password: 1234
-  h2:
-    console:
-      enabled: true
-      settings:
-        web-allow-others: true
-      path: /h2-console #접속하고자 하는 h2 콘솔의 주소
+
+#  datasource:
+#    url: jdbc:h2:./test
+#    driver-class-name: org.h2.Driver
+#    username: sa
+#    password: 1234
+#  h2:
+#    console:
+#      enabled: true
+#      settings:
+#        web-allow-others: true
+#      path: /h2-console #접속하고자 하는 h2 콘솔의 주소
 
 greeting:
   message: Welcome to the Simple E-commerce.

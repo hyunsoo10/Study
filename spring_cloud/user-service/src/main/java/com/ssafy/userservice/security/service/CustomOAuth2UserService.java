@@ -1,17 +1,19 @@
 package com.ssafy.userservice.security.service;
 
-import com.ssafy.pickitup.domain.auth.command.AuthCommandJpaRepository;
-import com.ssafy.pickitup.domain.auth.entity.Auth;
-import com.ssafy.pickitup.domain.auth.entity.Role;
-import com.ssafy.pickitup.domain.auth.query.dto.AuthDto;
-import com.ssafy.pickitup.domain.user.command.service.UserCommandService;
-import com.ssafy.pickitup.security.CustomUserDetails;
-import com.ssafy.pickitup.security.oauth2.GoogleOAuth2UserInfo;
-import com.ssafy.pickitup.security.oauth2.KakaoOAuth2UserInfo;
-import com.ssafy.pickitup.security.oauth2.NaverOAuth2UserInfo;
-import com.ssafy.pickitup.security.oauth2.Oauth2UserInfo;
+
 import java.util.Map;
 import java.util.Optional;
+
+import com.ssafy.userservice.dto.AuthDto;
+import com.ssafy.userservice.entity.Auth;
+import com.ssafy.userservice.entity.Role;
+import com.ssafy.userservice.repository.AuthRepository;
+import com.ssafy.userservice.security.CustomUserDetails;
+import com.ssafy.userservice.security.oauth2.GoogleOAuth2UserInfo;
+import com.ssafy.userservice.security.oauth2.KakaoOAuth2UserInfo;
+import com.ssafy.userservice.security.oauth2.NaverOAuth2UserInfo;
+import com.ssafy.userservice.security.oauth2.Oauth2UserInfo;
+import com.ssafy.userservice.service.MemberService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.oauth2.client.userinfo.DefaultOAuth2UserService;
@@ -29,8 +31,8 @@ public class CustomOAuth2UserService extends DefaultOAuth2UserService {
     private static final String NAVER = "naver";
     private static final String KAKAO = "kakao";
     private static final String GET_NAVER_ATTRIBUTE = "response";
-    private final AuthCommandJpaRepository authCommandJpaRepository;
-    private final UserCommandService userCommandService;
+    private final AuthRepository authRepository;
+    private final MemberService memberService;
     private final String GOOGLE = "google";
     private Auth auth;
 
@@ -40,7 +42,10 @@ public class CustomOAuth2UserService extends DefaultOAuth2UserService {
         OAuth2User oAuth2User = super.loadUser(userRequest);
         String registrationId = userRequest.getClientRegistration().getRegistrationId();
         Oauth2UserInfo oauth2UserInfo = ofOAuth2UserInfo(registrationId, oAuth2User);
-        Optional<Auth> optionalUser = authCommandJpaRepository.findByProviderAndProviderId(
+
+        assert oauth2UserInfo != null;
+
+        Optional<Auth> optionalUser = authRepository.findByProviderAndProviderId(
             oauth2UserInfo.getProvider(), oauth2UserInfo.getProviderId());
         if (optionalUser.isPresent()) {
             AuthDto authDto = AuthDto.getAuth(optionalUser.get());
@@ -57,9 +62,8 @@ public class CustomOAuth2UserService extends DefaultOAuth2UserService {
                 .build();
         }
 
-//        authCommandJpaRepository.save(auth);
         if (optionalUser.isEmpty()) {
-            userCommandService.create(auth);
+            memberService.creteMember(auth);
         }
 
         return new CustomUserDetails(auth, oAuth2User.getAttributes());
