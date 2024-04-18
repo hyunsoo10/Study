@@ -1,6 +1,7 @@
 package com.ssafy.userservice.security.service;
 
 
+import com.ssafy.userservice.security.oauth2.AzureOAuth2UserInfo;
 import java.util.Map;
 import java.util.Optional;
 
@@ -34,6 +35,7 @@ public class CustomOAuth2UserService extends DefaultOAuth2UserService {
     private final AuthRepository authRepository;
     private final MemberService memberService;
     private final String GOOGLE = "google";
+    private final String AZURE = "azure";
     private Auth auth;
 
     @Override
@@ -43,23 +45,26 @@ public class CustomOAuth2UserService extends DefaultOAuth2UserService {
         String registrationId = userRequest.getClientRegistration().getRegistrationId();
         Oauth2UserInfo oauth2UserInfo = ofOAuth2UserInfo(registrationId, oAuth2User);
 
-        assert oauth2UserInfo != null;
+        log.info("oauth2UserInfo: {}", oauth2UserInfo.toString());
+        log.info("userRequest: {}", userRequest.toString());
+
+//        assert oauth2UserInfo != null;
 
         Optional<Auth> optionalUser = authRepository.findByProviderAndProviderId(
             oauth2UserInfo.getProvider(), oauth2UserInfo.getProviderId());
         if (optionalUser.isPresent()) {
             AuthDto authDto = AuthDto.getAuth(optionalUser.get());
-            authDto.setEmail(oauth2UserInfo.getEmail());
             auth = Auth.toDto(authDto);
         } else {
             auth = Auth.builder()
                 .username(oauth2UserInfo.getProviderId())
-                .email(oauth2UserInfo.getEmail())
                 .name(oauth2UserInfo.getName())
                 .role(Role.USER)
                 .provider(oauth2UserInfo.getProvider())
                 .providerId(oauth2UserInfo.getProviderId())
                 .build();
+            authRepository.save(auth);
+            log.info("auth={}", auth.toString());
         }
 
         if (optionalUser.isEmpty()) {
@@ -70,6 +75,8 @@ public class CustomOAuth2UserService extends DefaultOAuth2UserService {
     }
 
     private Oauth2UserInfo ofOAuth2UserInfo(String registrationId, OAuth2User oAuth2User) {
+        log.info("registrationId: {}", registrationId);
+        log.info("oAuth2User: {}", oAuth2User.toString());
         if (registrationId.equals(GOOGLE)) {
             return new GoogleOAuth2UserInfo(oAuth2User.getAttributes());
         } else if (registrationId.equals(NAVER)) {
@@ -77,6 +84,8 @@ public class CustomOAuth2UserService extends DefaultOAuth2UserService {
                 (Map) oAuth2User.getAttributes().get(GET_NAVER_ATTRIBUTE));
         } else if (registrationId.equals(KAKAO)) {
             return new KakaoOAuth2UserInfo(oAuth2User.getAttributes());
+        }else if(registrationId.equals(AZURE)){
+            return new AzureOAuth2UserInfo(oAuth2User.getAttributes());
         }
         return null;
     }

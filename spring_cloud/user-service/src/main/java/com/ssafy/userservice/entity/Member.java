@@ -7,6 +7,7 @@ import lombok.*;
 @Entity
 @Builder
 @Table(name = "members")
+@ToString(of = {"id", "department", "zoneId"})
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
 public class Member {
@@ -18,11 +19,10 @@ public class Member {
     @Builder.Default
     @Column(columnDefinition = "INT DEFAULT 1")
     private Integer profile = 1;
-    private String nickname;
-    @Column(nullable = false, length = 50, unique = true)
-    private String email;
-    @Column(nullable = false, unique = true)
-    private String encryptedPwd;
+//    @Column(nullable = false, length = 50, unique = true)
+    private String department;
+//    @Column(nullable = false, columnDefinition = "INT DEFAULT Asia/Seoul")
+    private String zoneId;
 
     @MapsId
     @OneToOne

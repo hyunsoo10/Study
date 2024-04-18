@@ -37,7 +37,6 @@ public class Auth {
     private String username;
     private String password;
     private String name;
-    private String email;
     private String provider;
     private String providerId;
 
@@ -66,7 +65,6 @@ public class Auth {
             .name(authDto.getName())
             .lastLoginDate(authDto.getLastLoginDate())
             .role(authDto.getRole())
-            .email(authDto.getEmail())
             .provider(authDto.getProvider())
             .providerId(authDto.getProviderId())
             .refreshToken(authDto.getRefreshToken())
@@ -93,7 +91,4 @@ public class Auth {
         this.lastLoginDate = LocalDate.now();
     }
 
-    public void changeEmail(String email) {
-        this.email = email;
-    }
 }

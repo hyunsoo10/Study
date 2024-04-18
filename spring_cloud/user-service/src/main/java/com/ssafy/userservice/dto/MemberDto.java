@@ -10,17 +10,15 @@ import lombok.*;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
 public class MemberDto {
-    private String email;
-    private String nickname;
-    private String pwd;
-    private Date createdAt;
-    private String decryptedPwd;
-    private String encryptedPwd;
+    private Integer id;
+    private String department;
+    private String zoneId;
 
     public static MemberDto getMember(Member member) {
         return MemberDto.builder()
-                .email(member.getEmail())
-                .nickname(member.getNickname())
+                .id(member.getId())
+                .department(member.getDepartment())
+                .zoneId(member.getZoneId())
                 .build();
     }
 

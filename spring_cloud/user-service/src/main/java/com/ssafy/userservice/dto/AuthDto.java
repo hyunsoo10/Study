@@ -14,7 +14,6 @@ public class AuthDto {
     private String username;
     private String password;
     private String name;
-    private String email;
     private String provider;
     private String providerId;
     private Role role = Role.USER;
@@ -28,7 +27,6 @@ public class AuthDto {
             .username(auth.getUsername())
             .password(auth.getPassword())
             .name(auth.getName())
-            .email(auth.getEmail())
             .lastLoginDate(auth.getLastLoginDate())
             .provider(auth.getProvider())
             .providerId(auth.getProviderId())

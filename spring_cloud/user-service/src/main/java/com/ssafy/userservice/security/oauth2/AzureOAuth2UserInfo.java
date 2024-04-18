@@ -4,10 +4,10 @@ import java.util.Map;
 import lombok.ToString;
 
 @ToString
-public class GoogleOAuth2UserInfo implements Oauth2UserInfo{
+public class AzureOAuth2UserInfo implements Oauth2UserInfo{
     private Map<String, Object> attributes;
 
-    public GoogleOAuth2UserInfo(Map<String, Object> attributes) {
+    public AzureOAuth2UserInfo(Map<String, Object> attributes) {
         this.attributes = attributes;
     }
 
@@ -18,7 +18,7 @@ public class GoogleOAuth2UserInfo implements Oauth2UserInfo{
 
     @Override
     public String getProvider() {
-        return "google";
+        return "azure";
     }
 
     @Override

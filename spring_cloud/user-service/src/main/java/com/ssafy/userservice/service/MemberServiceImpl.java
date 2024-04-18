@@ -25,7 +25,6 @@ public class MemberServiceImpl implements MemberService {
         ModelMapper mapper = new ModelMapper();
         mapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
         Member member = mapper.map(memberDto, Member.class);
-        member.setEncryptedPwd(passwordEncoder.encode(memberDto.getPwd()));
 
         memberRepository.save(member);
 
@@ -37,7 +36,6 @@ public class MemberServiceImpl implements MemberService {
     @Override
     public MemberDto creteMember(Auth auth) {
         Member member = Member.builder()
-                .nickname(auth.getName())
                 .auth(auth)
                 .build();
         auth.setMember(member);
