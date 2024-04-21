@@ -33,7 +33,7 @@ public class OAuth2LoginSuccessHandler extends SimpleUrlAuthenticationSuccessHan
     private final MemberRepository memberRepository;
     private final AuthService authService;
     private final RedisService redisService;
-    private final String CALLBACK_URL = "http://localhost/auth/callback";
+    private final String CALLBACK_URL = "http://localhost:8080/auth/callback";
 
     @Override
     @Transactional

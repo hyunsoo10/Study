@@ -78,6 +78,7 @@ public class CustomOAuth2UserService extends DefaultOAuth2UserService {
         log.info("registrationId: {}", registrationId);
         log.info("oAuth2User: {}", oAuth2User.toString());
         if (registrationId.equals(GOOGLE)) {
+            log.info(" 0 - oAuth2User = {}", oAuth2User.toString());
             return new GoogleOAuth2UserInfo(oAuth2User.getAttributes());
         } else if (registrationId.equals(NAVER)) {
             return new NaverOAuth2UserInfo(
@@ -85,6 +86,7 @@ public class CustomOAuth2UserService extends DefaultOAuth2UserService {
         } else if (registrationId.equals(KAKAO)) {
             return new KakaoOAuth2UserInfo(oAuth2User.getAttributes());
         }else if(registrationId.equals(AZURE)){
+            log.info("0 - oAuth2User = {}", oAuth2User.toString());
             return new AzureOAuth2UserInfo(oAuth2User.getAttributes());
         }
         return null;
