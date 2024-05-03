@@ -1,5 +1,5 @@
 server:
-  port: 0
+  port: 8111
 
 spring:
   application:
@@ -11,6 +11,26 @@ eureka:
     fetch-registry: true
     service-url:
       defaultZone: http://localhost:8761/eureka
+#      defaultZone: http://43.202.4.152:8761/eureka
   instance:
-    instance-id: ${spring.cloud.client.ip-address}:${spring.application.instance_id:${random.value}}
+    hostname: localhost
+#    hostname: 52.78.165.51
+#    instance-id: 52.78.165.51:8111
+#    instance-id: ${spring.cloud.client.ip-address}:${spring.application.instance_id:${random.value}}
 #    prefer-ip-address: true
+
+---
+spring:
+  config:
+    activate:
+      on-profile: lb2
+
+server:
+  port: 8112
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://43.202.4.152:8761/eureka
+  instance:
+    hostname: 52.78.165.51

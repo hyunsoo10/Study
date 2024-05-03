@@ -5,9 +5,13 @@ import com.ssafy.userservice.entity.Member;
 import com.ssafy.userservice.entity.Role;
 import java.time.LocalDate;
 import lombok.Builder;
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
-@Data
+@Getter
+@Setter
+@ToString
 @Builder
 public class AuthDto {
     private Integer id;

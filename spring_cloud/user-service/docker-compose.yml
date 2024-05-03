@@ -1,0 +1,13 @@
+services:
+  user-service:
+    container_name: user-service-1
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8200:8200"
+    networks:
+      - my-network
+networks:
+  my-network:
+    external: true

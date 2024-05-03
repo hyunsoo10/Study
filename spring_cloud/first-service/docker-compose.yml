@@ -1,0 +1,28 @@
+version: '3'
+
+services:
+
+  first-service-1:
+    container_name: first-service-1
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8111:8111"
+    networks:
+      - my-network
+  first-service-2:
+    container_name: first-service-2
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8112:8112"
+    environment:
+      - SPRING_PROFILES_ACTIVE=lb2
+    networks:
+      - my-network
+
+networks:
+  my-network:
+    external: true

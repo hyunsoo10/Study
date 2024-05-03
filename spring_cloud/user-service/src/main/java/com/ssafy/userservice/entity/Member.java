@@ -3,10 +3,10 @@ package com.ssafy.userservice.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
-@Data
+@Getter
 @Entity
 @Builder
-@Table(name = "members")
+@Table(name = "member")
 @ToString(of = {"id", "department", "zoneId"})
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
@@ -19,14 +19,31 @@ public class Member {
     @Builder.Default
     @Column(columnDefinition = "INT DEFAULT 1")
     private Integer profile = 1;
-//    @Column(nullable = false, length = 50, unique = true)
+    //    @Column(nullable = false, length = 50, unique = true)
+    private String email;
     private String department;
-//    @Column(nullable = false, columnDefinition = "INT DEFAULT Asia/Seoul")
+    //    @Column(nullable = false, columnDefinition = "INT DEFAULT Asia/Seoul")
     private String zoneId;
 
     @MapsId
-    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id", referencedColumnName = "id")
     private Auth auth;
+
+    public void changeProfile(Integer profile) {
+        this.profile = profile;
+    }
+
+    public void changeEmail(String email) {
+        this.email = email;
+    }
+
+    public void changeZoneId(String zoneId) {
+        this.zoneId = zoneId;
+    }
+
+    public void changeDepartment(String department) {
+        this.department = department;
+    }
 
 }
